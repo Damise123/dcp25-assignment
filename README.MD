@@ -2,105 +2,42 @@
 
 - [Assignment Brief](assignment.md)
 
-Name:
+Name:Oluwadamise Adeniran
 
-Student Number: 
+Student Number: C24528163
 
 # Screenshots
+- ![image of the project in action for get tunes by book](<Screenshot 2025-12-03 183615.png>)
+- ![image of the project in action for get tunes by type](image.png)
+- ![image of the project in action for get tunes by title](image-1.png)
+- ![Showing the project is in the right format](image-2.png)
+
 
 # Description of the project
-
+This project parses abc tune files, stores them in a databasse an allows for the interaction of the it using an interactive menu for the filtering of data
 # Instructions for use
+simply enter your number in whihc you want to do there are 4 options whihc are get tunes by book , get tunes by type , search tunes by titles and quit the interactive menu
 
 # How it works:
-
+My code works by first parsing the files from their folders after that it inserts them into the tunes database(tunes.db) after that is coplete it loads up an interacvtive window in which a user of the program can do various things after that you can find tunes by various filters 
 # List of files in the project
 
 | Files | Source |
 |-----------|-----------|
 | main.py | Self written |
-| test.py | Modified from [reference]() |
-| test.py | From [reference]() |
+| test.py | Modified from [main.py]() |
 
 # References
-* Item 1
-* Item 2
+* Bryan Duggan Lecture notes
+* Bryan Duggan's Youtube page 
+* https://github.com/hx1997/dayu 
 
 # What I am most proud of in the assignment
 
-Bla bla bla
+I am proud I finished this assignment in which I struggled with in the beginning 
 
 # What I learned
 
-Bla bla bla
+I learnt how to create an interactive menu with various functions in it
 
-## Below is how to use Markdown. You can delete this:
 
-## This is how to markdown text:
-
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-This is an image using a relative URL:
-
-![An image](images/p8.png)
-
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
-This is a youtube video:
-
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
-
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-
-|Some stuff | Some more stuff in this column |
