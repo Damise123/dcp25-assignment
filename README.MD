@@ -18,8 +18,6 @@ This project parses abc tune files, stores them in a databasse an allows for the
 # Instructions for use
 simply enter your number in whihc you want to do there are 4 options whihc are get tunes by book , get tunes by type , search tunes by titles and quit the interactive menu
 
-# How it works:
-My code works by first parsing the files from their folders after that it inserts them into the tunes database(tunes.db) after that is coplete it loads up an interacvtive window in which a user of the program can do various things after that you can find tunes by various filters 
 # List of files in the project
 
 | Files | Source |
