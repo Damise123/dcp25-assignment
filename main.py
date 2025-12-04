@@ -73,6 +73,7 @@ for item in os.listdir(books_dir):
                 file_path = os.path.join(item_path, file)
                 print(f"  Found abc file: {file}")
                 process_file(file_path)
+#Parsing Functions
 def parse_abc_file(file_path, book_number):
     tunes= []
     current_tune = None
@@ -139,7 +140,7 @@ def do_databasse_stuff():
     df = pd.read_sql("SELECT * FROM users", conn)
     print(df.head())
     conn.close()
-
+#Data Filtering
 def get_tunes_by_book(df, book_number):
     return df[df["book"] == book_number]
 
@@ -151,7 +152,7 @@ def search_tunes(df, search_term):
     
     return df[df["T"].str.contains(search_term, case=False, na=False)]
 
-
+#the function containing the interactgive menu
 def tunes_menu(df):
     while True:
         print("\n--- Tunes Menu ---")
