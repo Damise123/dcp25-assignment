@@ -20,6 +20,7 @@ simply enter your number in whihc you want to do there are 4 options whihc are g
 
 # How it works:
 My code works by first parsing the files from their folders after that it inserts them into the tunes database(tunes.db) after that is coplete it loads up an interacvtive window in which a user of the program can do various things after that you can find tunes by various filters 
+With T = Title and R = Type
 # List of files in the project
 
 | Files | Source |
