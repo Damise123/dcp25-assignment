@@ -86,7 +86,7 @@ def search_tunes(df: pd.DataFrame, search_term:str)-> pd.DataFrame:
     return df[df["T"].str.contains(search_term, case=False, na=False)]
 
 #the function containing the interactive menu
-def tunes_menu(df):
+def tunes_menu(df: pd.DataFrame)-> pd.DataFrame:
     while True:
         print("\n--- Tunes Menu ---")
         print("1 = Get tunes by book")
