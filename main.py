@@ -111,35 +111,7 @@ def diction_maker(folder_path):
             tunes = parse_abc_file(file_path)
             all_tunes.extend(tunes)
     return all_tunes
-def do_databasse_stuff():
 
-    conn = sqlite3.connect('tunes.db')
-    cursor = conn.cursor()
-
-    # Create table
-    cursor.execute('CREATE TABLE IF NOT EXISTS users (name TEXT, age INTEGER)')
-
-    # Insert data
-    cursor.execute('INSERT INTO users (name, age) VALUES (?, ?)', ('John', 30))
-
-    # Save changes
-    conn.commit()
-
-    cursor.execute('SELECT * FROM users')
-
-    
-    results = cursor.fetchall()
-
-    
-    for row in results:
-        print(row)    
-        print(row[0])
-        print(row[1])
-    # Close
-    
-    df = pd.read_sql("SELECT * FROM users", conn)
-    print(df.head())
-    conn.close()
 #Data Filtering
 def get_tunes_by_book(df, book_number):
     return df[df["book"] == book_number]
