@@ -144,11 +144,11 @@ def get_tunes_by_book(df, book_number):
     return df[df["book"] == book_number]
 
 def get_tunes_by_type(df, tune_type):
-    # case-insensitive match
+   
     return df[df["R"].str.lower() == tune_type.lower()]
 
 def search_tunes(df, search_term):
-    # case-insensitive search in titles
+    
     return df[df["T"].str.contains(search_term, case=False, na=False)]
 
 
