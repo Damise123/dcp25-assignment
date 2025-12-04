@@ -1,78 +1,18 @@
-# Starter code for Data Centric Programming Assignment 2025
 
-# os is a module that lets us access the file system
-
-# Bryan Duggan likes Star Trek
-# Bryan Duggan is a great flute player
 
 import os 
 import sqlite3
 import pandas as pd
-import mysql.connector
+
 conn = sqlite3.connect("tunes.db")
 df = pd.read_sql("SELECT * FROM tunes", conn)
 conn.close()
-# sqlite for connecting to sqlite databases
 
-# An example of how to create a table, insert data
-# and run a select query
-
-def my_sql_database():
-    conn = mysql.connector.connect(host="localhost", user="root", database="tunepal")
-    
-    cursor = conn.cursor()
-    cursor.execute("select * from tuneindex")
-    
-    
-    while True:
-        row = cursor.fetchone()
-        if not row:
-            break
-        else:
-            print(row)
-    # results = cursor.fetchall()
-    
-    
-
-    # Print results
-    for row in results:
-        print(row)    
-    conn.close()
-    
+ 
 
 books_dir = "abc_books"
 
-def process_file(file):
-    with open(file, 'r') as f:
-        lines = f.readlines()
-    # list comprehension to strip the \n's
-    lines = [line.strip() for line in lines]
 
-    # just print the files for now
-    for line in lines:
-        # print(line)
-        pass
-
-
-# my_sql_database()
-# do_databasse_stuff()
-
-# Iterate over directories in abc_books
-for item in os.listdir(books_dir):
-    # item is the dir name, this makes it into a path
-    item_path = os.path.join(books_dir, item)
-    
-    # Check if it's a directory and has a numeric name
-    if os.path.isdir(item_path) and item.isdigit():
-        print(f"Found numbered directory: {item}")
-        
-        # Iterate over files in the numbered directory
-        for file in os.listdir(item_path):
-            # Check if file has .abc extension
-            if file.endswith('.abc'):
-                file_path = os.path.join(item_path, file)
-                print(f"  Found abc file: {file}")
-                process_file(file_path)
 #Parsing Functions
 def parse_abc_file(file_path, book_number):
     tunes= []
@@ -101,16 +41,35 @@ def parse_abc_file(file_path, book_number):
         tunes.append(current_tune)
     
     return tunes
+all_tunes = []
+# Iterate over directories in abc_books
+for item in os.listdir(books_dir):
+    # item is the dir name, this makes it into a path
+    item_path = os.path.join(books_dir, item)
+    
+    # Check if it's a directory and has a numeric name
+    if os.path.isdir(item_path) and item.isdigit():
+        print(f"Found numbered directory: {item}")
+        
+        # Iterate over files in the numbered directory
+        for file in os.listdir(item_path):
+            # Check if file has .abc extension
+            if file.endswith('.abc'):
+                file_path = os.path.join(item_path, file)
+                print(f"  Found abc file: {file}")
+                tunes = parse_abc_file(file_path, int(item))
+                for t in tunes:
+                    print({
+                        "book": t["book"],
+                        "X": t["X"],
+                        "title": t.get("title", ""),
+                        "type": t.get("type", ""),
+                        "key": t.get("key", "")
+                    })
+                
 
-def diction_maker(folder_path):
-    all_tunes = []
-    for file_name in os.listdir(folder_path):
-        if file_name.lower().endswith(".abc"):
-            file_path = os.path.join(folder_path, file_name)
-            print("Parsing:", file_path)
-            tunes = parse_abc_file(file_path)
-            all_tunes.extend(tunes)
-    return all_tunes
+
+
 
 #Data Filtering
 def get_tunes_by_book(df, book_number):
