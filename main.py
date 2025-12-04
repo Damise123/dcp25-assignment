@@ -124,7 +124,7 @@ def search_tunes(df, search_term):
     
     return df[df["T"].str.contains(search_term, case=False, na=False)]
 
-#the function containing the interactgive menu
+#the function containing the interactive menu
 def tunes_menu(df):
     while True:
         print("\n--- Tunes Menu ---")
