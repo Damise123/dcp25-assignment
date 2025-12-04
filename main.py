@@ -3,6 +3,7 @@
 import os 
 import sqlite3
 import pandas as pd
+from typing import List, Dict
 
 conn = sqlite3.connect("tunes.db")
 df = pd.read_sql("SELECT * FROM tunes", conn)
@@ -14,7 +15,8 @@ books_dir = "abc_books"
 
 
 #Parsing Functions
-def parse_abc_file(file_path, book_number):
+def parse_abc_file(file_path: str, book_number: int) -> List[Dict[str, str]]:
+
     tunes= []
     current_tune = None
     current_tune_notation = ""
@@ -72,14 +74,14 @@ for item in os.listdir(books_dir):
 
 
 #Data Filtering
-def get_tunes_by_book(df, book_number):
+def get_tunes_by_book(df: pd.DataFrame, book_number: int)-> pd.DataFrame:
     return df[df["book"] == book_number]
 
-def get_tunes_by_type(df, tune_type):
+def get_tunes_by_type(df: pd.DataFrame, tune_type:str)-> pd.DataFrame:
    
     return df[df["R"].str.lower() == tune_type.lower()]
 
-def search_tunes(df, search_term):
+def search_tunes(df: pd.DataFrame, search_term:str)-> pd.DataFrame:
     
     return df[df["T"].str.contains(search_term, case=False, na=False)]
 
